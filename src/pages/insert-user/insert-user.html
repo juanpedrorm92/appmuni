@@ -1,0 +1,289 @@
+<!--
+  Generated template for the InsertUserPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title align="center">Registro de Conductores</ion-title>
+
+    <ion-buttons>
+
+      <button ion-button icon-only (click)="mostrarMenu()">
+        <ion-icon name="menu"> </ion-icon>
+
+
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+
+
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card color="dark">
+
+    <ion-card-header>
+      Datos Personales &nbsp;
+      <ion-icon name="person-add">
+      </ion-icon>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-list>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <ion-item>
+
+                <ion-input type="text" placeholder="Rut" [(ngModel)]="rut"></ion-input>
+              </ion-item>
+            </ion-col>
+
+            <ion-col col-6>
+              <ion-item>
+
+                <ion-input type="text" placeholder="Nombre" [(ngModel)]="nombre"></ion-input>
+              </ion-item>
+
+
+            </ion-col>
+
+
+          </ion-row>
+          <ion-row>
+            <ion-col col-6>
+
+              <ion-item>
+
+                <ion-input type="text" placeholder="Apellido Paterno" [(ngModel)]="apellidoP"></ion-input>
+              </ion-item>
+
+            </ion-col>
+
+            <ion-col col-6>
+
+              <ion-item>
+
+                <ion-input type="text" placeholder="Apellido Materno" [(ngModel)]="apellidoM"></ion-input>
+
+              </ion-item>
+
+            </ion-col>
+
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-2>
+
+              <ion-item>
+                <ion-icon font-size="50px" name="home"></ion-icon>
+              </ion-item>
+
+            </ion-col>
+
+            <ion-col col-10 align="center">
+              <ion-item>
+
+                <ion-input type="text" placeholder="Dirección" align="center" [(ngModel)]="direccion"></ion-input>
+
+
+              </ion-item>
+
+
+            </ion-col>
+
+
+
+          </ion-row>
+
+        </ion-grid>
+
+      </ion-list>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card color="dark">
+
+    <ion-card-header>
+
+      <h2 align="center">Usuario y Contraseña</h2>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-row>
+        <ion-col col-2>
+
+        </ion-col>
+
+        <ion-col col-7>
+          <ion-item>
+
+            <ion-input type="text" placeholder="USER" [(ngModel)]="user"></ion-input>
+
+          </ion-item>
+
+        </ion-col>
+
+        <ion-col col-1>
+
+
+
+          <ion-icon name="person"> </ion-icon>
+
+
+
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row>
+        <ion-col col-2>
+
+        </ion-col>
+
+
+        <ion-col col-7>
+
+          <ion-item>
+            <ion-input type="password" placeholder="PASSWORD" [(ngModel)]="pass"></ion-input>
+          </ion-item>
+
+
+
+        </ion-col>
+
+        <ion-col col-1>
+          <ion-icon name="key" md="md-key"></ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card color="dark">
+
+    <ion-card-header>
+
+      <h2 align="center"> Privilegios</h2>
+
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-row>
+        <ion-col col-2>
+        </ion-col>
+
+        <ion-col col-7>
+
+          <form (submit)="radio($event)" [formGroup]="langForm">
+            <ion-list radio-group formControlName="langs">
+
+
+              <ion-item color="blue_primary">
+
+                <ion-label>Administrador</ion-label>
+                <ion-radio color="danger" cheked="true" value="1"></ion-radio>
+
+              </ion-item>
+
+              <ion-item color="blue_primary">
+
+                <ion-label>Conductor</ion-label>
+                <ion-radio color="danger" cheked="true" value="2"></ion-radio>
+
+              </ion-item>
+
+
+            </ion-list>
+          </form>
+
+
+
+        </ion-col>
+      </ion-row>
+
+
+
+    </ion-card-content>
+
+
+  </ion-card>
+
+  <ion-card color="dark">
+
+    <ion-card-header>
+      <h2 align="center"> Asignaciones </h2>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-row>
+        <ion-col col-1>
+
+        </ion-col>
+
+        <ion-col col-10>
+
+          <ion-list>
+            <ion-item>
+              <ion-label> Establecimiento</ion-label>
+              <ion-select [(ngModel)]="establecimientos">
+
+                <ion-option *ngFor="let estab of susuario.select_estab">{{estab.nombre_establecimiento}}</ion-option>
+
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Vehiculo</ion-label>
+              <ion-select [(ngModel)]="vehiculos">
+
+                <ion-option *ngFor="let cars of susuario.select_cars">{{cars.Patente}}</ion-option>
+
+
+              </ion-select>
+            </ion-item>
+          </ion-list>
+
+        </ion-col>
+
+        <ion-col col-1>
+
+
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-12  >
+          <ion-item color="light">
+            <img [src]="vehiculos | imagen">
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+
+  <button ion-button block color="light" (click)="grabar()">
+    Aceptar
+
+
+  </button>
+
+
+
+
+</ion-content>

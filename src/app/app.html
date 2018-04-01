@@ -1,1 +1,36 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+  <ion-header >
+    <ion-toolbar color="black_dark">
+      <ion-title>Modulos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+
+    <ion-item-group>
+
+      <ion-item-divider color="black_light"> <h3 align="center" >Usuario</h3></ion-item-divider>
+        <ion-list >
+          <button ion-item (click)="abrirPaginas(pageInsertUser)"color="black_primary" >
+            <ion-icon name="person" align="right"></ion-icon>
+            &nbsp; Crear Usuarios
+          </button>
+          <button ion-item (click)="abrirPaginas(searchUser)" color="black_primary">
+              <ion-icon name="search" align="right"></ion-icon>
+              &nbsp;
+              Buscar Usuario
+            </button>
+          <button ion-item (click)="abrirPaginas()" color="black_primary">
+            Abrir Ajustes Dos
+          </button>
+        </ion-list>
+     
+    </ion-item-group>
+
+  </ion-content>
+  
+</ion-menu>
+
+
+
+
+<ion-nav #content [root]="rootPage"></ion-nav>
